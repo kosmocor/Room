@@ -10,9 +10,9 @@ resources:
 
 variables:
 - group: common-value
-  # containerRegistry: 'team421acr.azurecr.io'
-  # containerRegistryDockerConnection: 'acr'
-  # environment: 'aks.default'
+  containerRegistry: 'team421acr.azurecr.io'
+  containerRegistryDockerConnection: 'acr'
+  environment: 'aks.default'
 - name: imageRepository
   value: 'Room'
 - name: dockerfilePath
