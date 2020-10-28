@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+- master
 
 resources:
 - repo: self
@@ -14,7 +14,7 @@ variables:
   # containerRegistryDockerConnection: 'acr'
   # environment: 'aks.default'
 - name: imageRepository
-  value: 'RoomManagement'
+  value: 'Room'
 - name: dockerfilePath
   value: '**/Dockerfile'
 - name: tag
@@ -61,7 +61,6 @@ stages:
         Dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
-
 - stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
@@ -115,7 +114,7 @@ stages:
                             failureThreshold: 10
                           livenessProbe:
                             httpGet:
-                              path: /rooms/1
+                              path: /products/1
                               port: 8080
                             initialDelaySeconds: 120
                             timeoutSeconds: 2
